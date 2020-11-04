@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="ko">
+    <!--JANE LEE 이가은 - ONLINE MALL PRODUCT PAGE HOMEWORK-->
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous">
+
+        <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!--        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"-->
+        <!--                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"-->
+        <!--                crossorigin="anonymous"></script>-->
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                crossorigin="anonymous"></script>
+
+        <title>마카롱 쇼핑몰</title>
+
+        <style>
+
+            * {
+                font-family: 'Nanum Pen Script', cursive;
+            }
+
+            .Rainbow-Macaron-Image {
+                width: 400px;
+                margin: 20px auto;
+                padding: 20px;
+                border: black solid;
+                border-radius: 5px;
+            }
+
+            .picture {
+                text-align: center;
+                margin: 50px;
+            }
+
+        </style>
+
+        <script>
+            let name = $('#buyerName').val();
+            let number = $('#numberOfOrder').val();
+            let address = $('#address').val();
+
+            // what's the initial input here in my variable? is it 0 or is it 'empty' or 'none' or something? check '
+            function submitOrder() {
+                if (name === 0) {
+                    alert('주문자 이름을 입력해 주세요.');
+                }
+                if (number === 0) {
+                    alert('주문갯수를 입력해 주세요.');
+                }
+                if (address === 0) {
+                    alert('주문자 주소를 입력해 주세요.');
+                } else {
+                    alert('레인보우 마카롱 주문이 완료되었습니다!');
+                }
+            }
+        </script>
+
+        <script>
+            function importExchangeRate() {
+                $.ajax({
+                    type: "GET",
+                    url: "https://api.manana.kr/exchange/rate.json",
+                    data: {},
+                    success: function (response) {
+                        let usdRate = response[2]["rate"];
+                        // for (let i = 0; i < mise.length; i++) {
+                        //     let guName = mise[i]["MSRSTE_NM"];
+                        //     let guMise = mise[i]["PM25"];
+                        //     let tempHtml = '';
+                        //     // 중가로가 스코프? 그리고 you can take common denominator out because it's a rule that functions cannot access what's inside of {}.
+                        //     // But what's inside of {} can access what's outside of it. so you put semicolon after tempHtml variation here.
+                        //
+                        //     if (guMise > 10) {
+                        //         tempHtml = `<li class="red">${guName}: ${guMise}</li>`
+                        //     } else {
+                        //         tempHtml = `<li>${guName}: ${guMise}</li>`
+                        //     }
+
+                            $('#intro').append(usdRate)
+                        }
+                    }
+                });
+            }
+
+
+            <
+            /head>
+
+            < body >
+
+            <!--사진-->
+            < div
+
+            class
+
+            = "picture" >
+                < img
+
+            class
+
+            = "Rainbow-Macaron-Image"
+            src = "https://static1.squarespace.com/static/56ab6938a976af10d4770e5e/56ab78d80ab37725a388047f/5d1795a34c2376000102b2ac/1561902474097/vanilla+macarons+with+rainbow+piping.jpg?format=1500w"
+            alt = "Macaron Image" >
+
+                <!--    상품제목 넣기-->
+                <!--상품 설명 쓰기-->
+                < h1 > 레인보우
+            마카롱 < /h1>
+            < h3 > 1
+            인
+            클래스 = W4, 5000 < /h3>
+            < p id="intro">
+            세상에서
+            하나밖에
+            없는
+            커스텀
+            마카롱
+            !컬러
+            디자인
+            모두
+            다
+            내
+            맘대로
+            가능한
+            레인보우
+            마카롱
+            카페
+            !전문가의
+            도움으로
+            완성도
+            높은
+            마카롱을
+            만들어
+            보세요
+            !
+            < /p>
+            < /div>
+
+            <!--    주문하기 폼 만들기 -->
+            < form
+
+            class
+
+            = "picture" >
+                < div
+
+            class
+
+            = "form-group row" >
+                < label
+            for= "buyerName" class
+            = "col-sm-2" > 주문자
+            성명 < /label>
+            < input
+            type = "text"
+
+            class
+
+            = "form-control col-sm-8"
+            id = "buyerName"
+            placeholder = "김르탄" >
+                < /div>
+
+                < div
+
+            class
+
+            = "form-group row" >
+                < label
+            for= "numberOfOrder" class
+            = "col-sm-2" > 주문
+            개수(최대
+            5
+            개
+            )<
+            /label>
+            < select
+
+            class
+
+            = "form-control col-sm-8"
+            id = "numberOfOrder" >
+                < option > 1 < /option>
+                < option > 2 < /option>
+                < option > 3 < /option>
+                < option > 4 < /option>
+                < option > 5 < /option>
+                < /select>
+                < /div>
+
+                < div
+
+            class
+
+            = "form-group row" >
+                < label
+            for= "phoneNumber" class
+            = "col-sm-2" > 주문자
+            전화번호 < /label>
+            < input
+            type = "text"
+
+            class
+
+            = "form-control col-sm-8"
+            id = "phoneNumber"
+            placeholder = "010-9876-2837" >
+                < /div>
+
+                < div
+
+            class
+
+            = "form-group row" >
+                < label
+            for= "address" class
+            = "col-sm-2" > 주문자
+            주소 < /label>
+            <!--             <input type="text" class="form-control col-sm-8" id="address" placeholder="김르탄">-->
+            < textarea
+
+            class
+
+            = "form-control col-sm-8"
+            id = "address"
+            rows = "3"
+            placeholder = "서울 특별시 " > < /textarea>
+                < /div>
+
+                < button
+            onclick = "submitOrder()"
+            type = "button"
+
+            class
+
+            = "btn btn-outline-dark btn-lg picture" > 주문하기 < /button>
+
+            I
+            need
+            to
+            use
+            bring
+            value, and
+            see
+            if it's not empty then .. wait should I make what'
+            s
+            selected
+            as
+            a
+            list ?
+                and
+            if list is
+            not
+            full
+            ...
+            or
+            use
+            IF
+            statement
+            for
+                <
+            /form>
+
+
+            <!--    what's the difference between text area and input type as text?
+            A: input text gives you 1 line and text area gives you default of 2 rows unless you specify for more. -->
+
+            <!--display: flex; + justify-content: centre, flex-end, flex-front-->
+            <!--is the trend -->
+
+
+            < /body>
+
+            < /html>
